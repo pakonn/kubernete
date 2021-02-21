@@ -1,0 +1,30 @@
+package com.framosbase.controllers;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/framosbase")
+public class FramosBase {
+	
+	@Value("${server.port}")
+	private Integer port;
+	
+	@GetMapping("/mensaje")
+	public String mensaje() {
+		
+		/*boolean rest=false;
+		if(rest==false) {
+			throw new Exception("exeptio exception");
+		}
+		try {
+			Thread.sleep(1000L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		*/
+		return "mensaje test// DESDE PUERTO:  "+port;
+	}
+}
